@@ -3,6 +3,7 @@ A chip-8 emulator (interpreter) designed in C++
 
 
 A breakdown of the traditional CHIP-8 CPU components:
+    
     - 16 8-bit Registers (labelled V0 through VF):
         - Each register can hold any value from 0x00 to 0xFF
         - Register VF is a flag to hold info about the results of operations
