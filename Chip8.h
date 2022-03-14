@@ -17,8 +17,9 @@ class Chip8
     
     private:
         //some constants
-        const uint16_t STARTING_ADDRESS = 0x200;
+        const uint16_t START_ADDRESS = 0x200;
         const uint16_t FONTSET_SIZE = 80;
+        const uint16_t FONTSET_START_ADDRESS = 0x50;
 
         //each row in this array represents an input 0 - F
         uint8_t fontset[FONTSET_SIZE] =     
@@ -74,11 +75,22 @@ class Chip8
         void OP_5xy0(); 
         void OP_6xkk();
         void OP_7xkk();
-        void OP_8xy0(); 
+        void OP_8xy0();
+        void OP_8xy1();
+        void OP_8xy2();
+        void OP_8xy3();
+        void OP_8xy4();
+        void OP_8xy5();
+        void OP_8xy6();
+        void OP_8xy7();
+        void OP_8xyE();
+        void OP_9xy0();
+        void OP_Annn();
+        void OP_Bnnn();
+        void OP_Cxkk();
+        void OP_Dxyn();
 
     public:
-        //CHIP8 functions
+        // CHIP8 functions
         void loadROM(char const *filename);
-
-        
 };      
