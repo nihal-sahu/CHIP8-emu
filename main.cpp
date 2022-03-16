@@ -18,17 +18,17 @@ int main(int argc, char** argv)
 
 	Platform platform("CHIP-8 Emulator", VIDEO_WIDTH * videoScale, VIDEO_HEIGHT * videoScale, VIDEO_WIDTH, VIDEO_HEIGHT);
 
-	Chip8 chip8;
-	chip8.loadROM(romFilename);
+	Chip8 cpu;
+	cpu.loadROM(romFilename);
 
-	int videoPitch = sizeof(chip8.video[0]) * VIDEO_WIDTH;
+	int videoPitch = sizeof(cpu.video[0]) * VIDEO_WIDTH;
 
 	auto lastCycleTime = std::chrono::high_resolution_clock::now();
 	bool quit = false;
 
 	while (!quit)
 	{
-		quit = platform.ProcessInput(chip8.keypad);
+		quit = platform.ProcessInput(cpu.keypad);
 
 		auto currentTime = std::chrono::high_resolution_clock::now();
 		float dt = std::chrono::duration<float, std::chrono::milliseconds::period>(currentTime - lastCycleTime).count();
@@ -37,9 +37,9 @@ int main(int argc, char** argv)
 		{
 			lastCycleTime = currentTime;
 
-			chip8.Cycle();
+			cpu.Cycle();
 
-			platform.Update(chip8.video, videoPitch);
+			platform.Update(cpu.video, videoPitch);
 		}
 	}
 
