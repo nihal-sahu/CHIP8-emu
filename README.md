@@ -1,11 +1,11 @@
 # CHIP8-emu
-A chip-8 emulator (interpreter) designed in C++
+### A chip-8 emulator (interpreter) designed in C++ 
 
-How to use:
+## How to use:
 After running make, execute chip8 as follows:<br>
 `./chip8 <scale (10 for biggest)> <delay> <ROM file>`
 
-A breakdown of the traditional CHIP-8 CPU components:
+## A breakdown of the traditional CHIP-8 CPU components:
     
     16 8-bit Registers (labelled V0 through VF):
         Each register can hold any value from 0x00 to 0xFF
